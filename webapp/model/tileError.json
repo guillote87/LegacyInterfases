@@ -1,6 +1,7 @@
 {
     "tiles": [
         {
+            "id": "01",
             "title": "Alta/Modif Cliente",
             "subtitle": "Salesforce a SAP",
             "footer": "Interfase 1",
@@ -8,6 +9,7 @@
             "color": "Good"
         },
         {
+            "id": "02",
             "title": "Alta/Modif Pedidos",
             "subtitle": "Salesforce a SAP",
             "footer": "Interfase 2",
@@ -15,6 +17,7 @@
             "color": "Critical"
         },
         {
+            "id": "03",
             "title": "Crear/Modificar Pedidos en los Portales",
             "subtitle": "SAP a portales",
             "footer": "Interfase 3",
@@ -22,6 +25,7 @@
             "color": "Critical"
         },
         {
+            "id": "04",
             "title": "Modificar Pedidos",
             "subtitle": "SAP a Salesforce",
             "footer": "Interfase 4",
@@ -29,6 +33,7 @@
             "color": "Error"
         },
         {
+            "id": "05",
             "title": "Modificar Clientes",
             "subtitle": "Sap a Salesforce",
             "footer": "Interfase 5",
@@ -36,6 +41,7 @@
             "color": "Critical"
         },
         {
+            "id": "06",
             "title": "Activar/Desactivar Pedidos en los portales",
             "subtitle": "Sap a Portales",
             "footer": "Interfase 6",
@@ -43,6 +49,7 @@
             "color": "Critical"
         },
         {
+            "id": "07",
             "title": "Aviso de Pago de MercadoPago",
             "subtitle": "Sap a Salesforce",
             "footer": "Interfase 7",

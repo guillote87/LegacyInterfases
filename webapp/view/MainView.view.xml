@@ -7,16 +7,19 @@
 	<Page id="page" title="{i18n>title}">
 		<VBox class="sapUiResponsiveMargin" alignContent="Center">
 			<l:HorizontalLayout id="TileContainerExpanded" allowWrapping="true" content="{/tiles}" class="sapUiResponsiveMargin">
-				<GenericTile header="{title}" subheader="{subtitle}" press="press" class="sapUiTinyMargin" sizeBehavior="Small">
+				<GenericTile header="{title}" subheader="{subtitle}"  frameType="OneByHalf" press="pressTile" class="sapUiTinyMargin" sizeBehavior="Small">
 					<TileContent unit="{unit}" footer="{footer}">
-						<NumericContent withMargin="false" value="{kpivalue}" valueColor="{color}" />
+						<NumericContent class="font" withMargin="false" value="{kpivalue}" valueColor="{color}" />
 					</TileContent>
 				</GenericTile>
 			</l:HorizontalLayout>
 		</VBox>
 		<VBox class="sapUiResponsiveMargin" alignContent="Center">
-		<Table id="interfaseTable" items="{Errors>/}">
+		<Table id="interfaseTable" items="{Errors>/}" visible="false">
 			<columns>
+				<Column >
+					<Text text="Interfase" />
+				</Column>
 				<Column >
 					<Text text="Fecha" />
 				</Column>
@@ -36,6 +39,7 @@
 			<items>
 				<ColumnListItem vAlign="Middle">
 					<cells>
+						<Text text="{Errors>Interfase}"/>
 						<Text text="{Errors>Fecha}"/>
 						<Text text="{Errors>OrgVentas}"/>
 						<Text text="{Errors>Usuario}"/>
