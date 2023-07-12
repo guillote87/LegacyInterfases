@@ -5,7 +5,7 @@
             "title": "Alta/Modif Cliente",
             "subtitle": "Salesforce a SAP",
             "footer": "Interfase 1",
-            "kpivalue": 12,
+            "kpivalue": 4,
             "color": "Good"
         },
         {
@@ -21,7 +21,7 @@
             "title": "Crear/Modificar Pedidos en los Portales",
             "subtitle": "SAP a portales",
             "footer": "Interfase 3",
-            "kpivalue": 12,
+            "kpivalue": 10,
             "color": "Critical"
         },
         {
@@ -29,7 +29,7 @@
             "title": "Modificar Pedidos",
             "subtitle": "SAP a Salesforce",
             "footer": "Interfase 4",
-            "kpivalue": 500,
+            "kpivalue": 3,
             "color": "Error"
         },
         {
@@ -45,7 +45,7 @@
             "title": "Activar/Desactivar Pedidos en los portales",
             "subtitle": "Sap a Portales",
             "footer": "Interfase 6",
-            "kpivalue": 1,
+            "kpivalue": 8,
             "color": "Critical"
         },
         {
