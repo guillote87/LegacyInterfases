@@ -1,5 +1,6 @@
 <mvc:View controllerName="legacy.controller.MainView"
-	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core"
 	xmlns:chart="sap.suite.ui.microchart"
@@ -15,7 +16,15 @@
 			</l:HorizontalLayout>
 		</VBox>
 		<VBox class="sapUiResponsiveMargin" alignContent="Center">
-		<Table id="interfaseTable" items="{Errors>/}" visible="false">
+			<OverflowToolbar id="search" style="Clear" visible="false">
+						<SearchField
+						id="searchFilter"
+							placeholder="Buscar Usuario"
+							search="searchFilter"
+							width="15rem"/>
+					</OverflowToolbar>
+
+		<Table id="interfaseTable" items="{FilteredErrors>/}" visible="false">		
 			<columns>
 				<Column >
 					<Text text="Interfase" />
@@ -39,12 +48,12 @@
 			<items>
 				<ColumnListItem vAlign="Middle">
 					<cells>
-						<Text text="{Errors>Interfase}"/>
-						<Text text="{Errors>Fecha}"/>
-						<Text text="{Errors>OrgVentas}"/>
-						<Text text="{Errors>Usuario}"/>
-						<Text text="{Errors>ClienteSap}"/>
-						<Text text="{Errors>Mensaje}"/>
+						<Text text="{FilteredErrors>Interfase}"/>
+						<Text text="{FilteredErrors>Fecha}"/>
+						<Text text="{FilteredErrors>OrgVentas}"/>
+						<Text text="{FilteredErrors>Usuario}"/>
+						<Text text="{FilteredErrors>ClienteSap}"/>
+						<Text text="{FilteredErrors>Mensaje}"/>
 					</cells>
 				</ColumnListItem>
 			</items>
