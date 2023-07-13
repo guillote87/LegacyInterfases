@@ -39,11 +39,33 @@ sap.ui.define([
                 this.byId("search").setProperty('visible').true
             },
             searchFilter: function () {
+
+                var aFilters = [];
                 var filter = this.byId("searchFilter").getValue()
 
-                var oFilter = new Filter("Usuario", FilterOperator.Contains, filter)
-                var table = this.byId("interfaseTable")
-                table.getBinding("items").filter(oFilter)
-            }
+                var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "dd.MM.YYYY" });
+                var fromDate = dateFormat.format(this.getView().byId("fecha").getDateValue());
+                var toDate = dateFormat.format(this.getView().byId("fecha").getSecondDateValue());
+
+
+
+                console.log(fromDate, toDate)
+                if (filter) {
+                    aFilters.push(new Filter("OrgVentas", FilterOperator.Contains, filter))
+                }
+
+                if (fromDate && toDate) {
+                    aFilters.push(new Filter("Fecha", FilterOperator.BT, fromDate, toDate))
+                }
+
+                this.byId("interfaseTable").getBinding("items").filter(aFilters);
+               // this.getView().byId("fecha").setValue(null);
+
+                //  var table = this.byId("interfaseTable")
+                //  table.getBinding("items").filter(oFilter)
+            },
+
+
+
         });
     });
