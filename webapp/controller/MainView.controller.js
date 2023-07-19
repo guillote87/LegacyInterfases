@@ -24,11 +24,10 @@ sap.ui.define([
                 })
 
                 interModel.read("/LogsSet", {
-                    filters: [
-                        new sap.ui.model.Filter("Interface", FilterOperator.EQ, '06')
-                    ],
+                    // filters: [
+                    //     new sap.ui.model.Filter("Interface", FilterOperator.EQ, '06')
+                    // ],
                     success: function (data) {
-                        console.log("DATOS", data.results)
                         this.getView().setModel(new JSONModel(data.results), "interfases")
                         this.byId('interfasesFull').setBusy(false)
 
@@ -60,7 +59,14 @@ sap.ui.define([
                         new sap.ui.model.Filter("Interface", FilterOperator.EQ, oContext.id),
                     ],
                     success: function (data) {
-                        this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
+
+                        if (data.results.length) {
+                            this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
+
+                        } else {
+                            MessageToast.show("No hay datos para mostrar")
+                            this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
+                        }
                         table.setBusy(false)
                     }.bind(this),
                     error: function (e) {
