@@ -21,7 +21,7 @@
             "title": "Crear/Modificar Pedidos en los Portales",
             "subtitle": "SAP a portales",
             "footer": "Interfase 3",
-            "kpivalue": 10,
+            "kpivalue": 225,
             "color": "Critical"
         },
         {
@@ -45,7 +45,7 @@
             "title": "Activar/Desactivar Pedidos en los portales",
             "subtitle": "Sap a Portales",
             "footer": "Interfase 6",
-            "kpivalue": 8,
+            "kpivalue": 9126,
             "color": "Critical"
         },
         {
