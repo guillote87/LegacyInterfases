@@ -14,6 +14,17 @@
       "id": "@sap/generator-fiori:basic",
       "version": "1.10.1",
       "toolsId": "9e77d67f-e60e-42e5-a852-b583d4261a9a"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZGW_MONITOR_INTERFASES_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
     }
   },
   "sap.ui": {
@@ -57,6 +68,11 @@
         "settings": {
           "bundleName": "legacy.i18n.i18n"
         }
+      },
+      "interfasesModel": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {

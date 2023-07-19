@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_MONITOR_INTERFASES_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Logs" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Interface"/>
+                </Key>
+                <Property Name="Interface" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:unicode="false"/>
+                <Property Name="Fecha" Type="Edm.String" MaxLength="10" sap:unicode="false"/>
+                <Property Name="Hora" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="Usuario" Type="Edm.String" MaxLength="10" sap:unicode="false"/>
+                <Property Name="OrgVentas" Type="Edm.String" MaxLength="4" sap:unicode="false"/>
+                <Property Name="PedidoSAP" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="PedidoPortal" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="Oportunidad" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="ClienteSAP" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="IdSite" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="Host" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="IdLog" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="Operacion" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:filterable="false"/>
+                <Property Name="Mensaje" Type="Edm.String" MaxLength="300" sap:unicode="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZGW_MONITOR_INTERFASES_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="LogsSet" EntityType="ZGW_MONITOR_INTERFASES_SRV.Logs" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://soades.sap.navent.com:44301/sap/opu/odata/sap/ZGW_MONITOR_INTERFASES_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://soades.sap.navent.com:44301/sap/opu/odata/sap/ZGW_MONITOR_INTERFASES_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

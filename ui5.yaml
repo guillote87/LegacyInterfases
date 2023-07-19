@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-
 specVersion: "2.6"
 metadata:
   name: legacy
@@ -15,6 +13,9 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+        backend:
+          - path: /sap
+            url: https://soades.sap.navent.com:44301
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

@@ -17,14 +17,14 @@
 		<VBox class="sapUiResponsiveMargin" alignContent="Center">
 			<OverflowToolbar id="search" style="Clear" visible="false">
 				<SearchField id="searchFilter" placeholder="Buscar Org. Venta" search="searchFilter" width="15rem"/>
-				<DateRangeSelection id="fecha" width="15rem" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy"
+				<DateRangeSelection id="fecha" width="15rem" valueFormat="YYYYMMdd" displayFormat="dd.MM.yyyy"
 			change="searchFilter"/>
 			</OverflowToolbar>
 
-			<Table id="interfaseTable" items="{FilteredErrors>/}" visible="false">
+			<Table id="interfaseTable" items="{FilteredErrors>/}" visible="false" growing="true" growingThreshold="10">
 				<columns>
 					<Column >
-						<Text text="Interfase" />
+						<Text text="Interface" />
 					</Column>
 					<Column >
 						<Text text="Fecha" />
@@ -45,12 +45,49 @@
 				<items>
 					<ColumnListItem vAlign="Middle">
 						<cells>
-							<Text text="{FilteredErrors>Interfase}"/>
+							<Text text="{FilteredErrors>Interface}"/>
 							<Text text="{FilteredErrors>Fecha}"/>
 							<Text text="{FilteredErrors>OrgVentas}"/>
 							<Text text="{FilteredErrors>Usuario}"/>
-							<Text text="{FilteredErrors>ClienteSap}"/>
+							<Text text="{FilteredErrors>ClienteSAP}"/>
 							<Text text="{FilteredErrors>Mensaje}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</VBox>
+<VBox class="sapUiResponsiveMargin" alignContent="Center">
+		
+			<Table id="interfasesFull" items="{interfases>/}" visible="true" growing="true" growingThreshold="10">
+				<columns>
+					<Column >
+						<Text text="Interface" />
+					</Column>
+					<Column >
+						<Text text="Fecha" />
+					</Column>
+					<Column >
+						<Text text="OrgVentas"/>
+					</Column>
+					<Column >
+						<Text text="Usuario"/>
+					</Column>
+					<Column >
+						<Text text="ClienteSap"/>
+					</Column>
+					<Column >
+						<Text text="Mensaje"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<Text text="{interfases>Interface}"/>
+							<Text text="{interfases>Fecha}"/>
+							<Text text="{interfases>OrgVentas}"/>
+							<Text text="{interfases>Usuario}"/>
+							<Text text="{interfases>ClienteSAP}"/>
+							<Text text="{interfases>Mensaje}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
