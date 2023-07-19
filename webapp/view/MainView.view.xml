@@ -17,7 +17,7 @@
 		<VBox class="sapUiResponsiveMargin" alignContent="Center">
 			<OverflowToolbar id="search" style="Clear" visible="false">
 				<SearchField id="searchFilter" placeholder="Buscar Org. Venta" search="searchFilter" width="15rem"/>
-				<DateRangeSelection id="fecha" width="15rem" valueFormat="YYYYMMdd" displayFormat="dd.MM.yyyy"
+				<DateRangeSelection id="fecha" width="13rem" valueFormat="YYYYMMdd" displayFormat="dd.MM.yyyy"
 			change="searchFilter"/>
 			</OverflowToolbar>
 
