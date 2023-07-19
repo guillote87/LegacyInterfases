@@ -40,7 +40,8 @@ sap.ui.define([
             },
             pressTile: function (event) {
                 var table = this.byId("interfaseTable")
-          
+                this.getView().setModel(new JSONModel([]), "FilteredErrors")
+
                 table.setBusy(true)
 
                 var sPath = event.getSource().getBindingContext().sPath
