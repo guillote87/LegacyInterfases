@@ -9,12 +9,14 @@ sap.ui.define([
             oEventBus.subscribe("appChannel", "selectedDataEvent", this.onSelectedDataReceived, this);
         },
         onSelectedDataReceived: function (sChannelId, sEventId, oData) {
-           console.log("Selected Data from View1:", oData);
-            var oDetailModel = new JSONModel([oData])
+            console.log("Selected Data from View1:", oData);
 
-            console.log(oDetailModel)
-            this.getView().setModel(oDetailModel, "FilteredErrors")
+            if (oData) {
+                var oDetailModel = new JSONModel([oData])
 
+                console.log(oDetailModel)
+                this.getView().setModel(oDetailModel, "FilteredErrors")
+            }
         },
 
     })

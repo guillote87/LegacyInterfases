@@ -3,7 +3,8 @@
    xmlns="sap.m"
    		xmlns:forms="sap.ui.layout.form"
    xmlns:mvc="sap.ui.core.mvc">
-   <Page  >
+   <Page  title="LOG {FilteredErrors>/0/IdLog}">
+   
   	<forms:Form width="100%">
 		<forms:layout>
 			<forms:ColumnLayout/>
