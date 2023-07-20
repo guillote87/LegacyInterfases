@@ -1,0 +1,77 @@
+<mvc:View
+   controllerName="legacy.controller.ErrorDetail"
+   xmlns="sap.m"
+   		xmlns:forms="sap.ui.layout.form"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Page  >
+  	<forms:Form width="100%">
+		<forms:layout>
+			<forms:ColumnLayout/>
+		</forms:layout>
+		<forms:formContainers>
+
+			<forms:FormContainer id="ErrorInfo" title="Addresses">
+				<forms:formElements>
+
+					<forms:FormElement label="Interface">
+						<forms:fields>
+							<Text text="{FilteredErrors>/0/Interface}"/>
+						</forms:fields>
+					</forms:FormElement>
+
+					<forms:FormElement label="Org. Ventas">
+						<forms:fields>
+							<Text text="{FilteredErrors>/0/OrgVentas}"/>
+						</forms:fields>
+					</forms:FormElement>
+
+					<forms:FormElement label="Fecha">
+						<forms:fields>
+							<Text text="{FilteredErrors>/0/Fecha}"/>
+						</forms:fields>
+					</forms:FormElement>
+
+					<forms:FormElement label="Hora">
+						<forms:fields>
+							<Text text="{FilteredErrors>/0/Hora}"/>
+						</forms:fields>
+					</forms:FormElement>
+
+				</forms:formElements>
+			</forms:FormContainer>
+
+
+			<forms:FormContainer id="InfoPedido" title="Info Pedido">
+				<forms:formElements>
+
+					<forms:FormElement label="Pedido SAP">
+						<forms:fields>
+							<Text text="{FilteredErrors>/0/PedidoSAP}"/>
+						</forms:fields>
+					</forms:FormElement>
+
+					<forms:FormElement label="Cliente SAP">
+						<forms:fields>
+							<Text text="{FilteredErrors>/0/ClienteSAP}"/>
+						</forms:fields>
+					</forms:FormElement>
+
+					<forms:FormElement label="Pedido Portal">
+						<forms:fields>
+							<Text text="{FilteredErrors>/0/PedidoPortal}"/>
+						</forms:fields>
+					</forms:FormElement>
+          <forms:FormElement label="Id Site">
+						<forms:fields>
+							<Text text="{FilteredErrors>/0/IdSite}"/>
+						</forms:fields>
+					</forms:FormElement>
+
+				</forms:formElements>
+			</forms:FormContainer>
+
+		</forms:formContainers>
+
+	</forms:Form>
+  </Page>
+</mvc:View>

@@ -90,7 +90,10 @@
         "viewPath": "legacy.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "clearControlAggregation": false,
+        "bypassed": {
+          "target": "NotFound"
+        }
       },
       "routes": [
         {
@@ -98,6 +101,20 @@
           "pattern": ":?query:",
           "target": [
             "TargetMainView"
+          ]
+        },
+        {
+          "name": "ErrorDetail",
+          "pattern": "ErrorDetail",
+          "target": [
+            "ErrorDetail"
+          ]
+        },
+        {
+          "name": "NotFound",
+          "pattern": "NotFound",
+          "target": [
+            "NotFound"
           ]
         }
       ],
@@ -108,6 +125,20 @@
           "clearControlAggregation": false,
           "viewId": "MainView",
           "viewName": "MainView"
+        },
+        "ErrorDetail": {
+          "viewType": "XML",
+          "transition": "show",
+          "clearControlAggregation": false,
+          "viewId": "ErrorDetail",
+          "viewName": "ErrorDetail"
+        },
+        "NotFound": {
+          "viewType": "XML",
+          "transition": "show",
+          "clearControlAggregation": false,
+          "viewId": "NotFound",
+          "viewName": "NotFound"
         }
       }
     },

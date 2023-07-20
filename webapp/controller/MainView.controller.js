@@ -11,11 +11,12 @@ sap.ui.define([
     function (Controller, MessageToast, JSONModel, Filter, FilterOperator) {
         "use strict";
 
-        return Controller.extend("project1.controller.MainView", {
+        return Controller.extend("legacy.controller.MainView", {
             onInit: function () {
 
                 var oModel = new JSONModel("../model/tileError.json");
                 this.getView().setModel(oModel);
+
                 this.byId('interfasesFull').setBusy(true)
                 var interModel = this.getOwnerComponent().getModel('interfasesModel')
 
@@ -46,7 +47,7 @@ sap.ui.define([
                 var sPath = event.getSource().getBindingContext().sPath
                 var oModel = this.getView().getModel()
                 var oContext = oModel.getProperty(sPath);
-                console.log(oContext)
+                //console.log(oContext)
 
                 var filterInterface = this.getOwnerComponent().getModel('interfasesModel')
 
@@ -62,6 +63,7 @@ sap.ui.define([
 
                         if (data.results.length) {
                             this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
+                       //     console.log(data)
 
                         } else {
                             MessageToast.show("No hay datos para mostrar")
@@ -105,8 +107,17 @@ sap.ui.define([
                 this.byId("interfaseTable").setBusy(false)
 
             },
+            onPress: function (oEvent) {
 
+                var itemPress = oEvent.getSource()
+                var oContext = itemPress.getBindingContext("FilteredErrors")
+                var oSelectedData = oContext.getObject()
+              
+                var oEventBus = sap.ui.getCore().getEventBus();
+                oEventBus.publish("appChannel", "selectedDataEvent", oSelectedData);
 
-
-        });
-    });
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this)
+                oRouter.navTo("ErrorDetail")
+            }
+        })
+    })

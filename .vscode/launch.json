@@ -28,7 +28,7 @@
         "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/legacy\"}"
       }
     },
-    ,
+    null,
     {
       "name": "Start legacy Mock",
       "type": "node",

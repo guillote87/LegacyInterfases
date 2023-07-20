@@ -20,37 +20,54 @@
 				<DateRangeSelection id="fecha" width="13rem" valueFormat="YYYYMMdd" displayFormat="dd.MM.yyyy"
 			change="searchFilter"/>
 			</OverflowToolbar>
-
-			<Table id="interfaseTable" items="{FilteredErrors>/}" visible="false" growing="true" growingThreshold="10">
+	
+			<Table id="interfaseTable" items="{FilteredErrors>/}" visible="false" growing="true"  growingThreshold="10">
 				<columns>
 					<Column >
-						<Text text="Interface" />
+						<Text text="OrgVentas"/>
 					</Column>
 					<Column >
 						<Text text="Fecha" />
 					</Column>
 					<Column >
-						<Text text="OrgVentas"/>
+						<Text text="Hora" />
 					</Column>
 					<Column >
-						<Text text="Usuario"/>
-					</Column>
-					<Column >
-						<Text text="ClienteSap"/>
+						<Text text="Operacion" />
 					</Column>
 					<Column >
 						<Text text="Mensaje"/>
 					</Column>
-				</columns>
+						<Column >
+						<Text text="PedidoSAP"/>
+					</Column>
+					<Column >
+						<Text text="ClienteSap"/>
+					</Column>
+						<Column >
+						<Text text="PedidoPortal"/>
+					</Column>
+						<Column >
+						<Text text="IdSite"/>
+					</Column>
+					
+					<Column >
+						<Text text="Oportunidad"/>
+					</Column>
+									</columns>
 				<items>
-					<ColumnListItem vAlign="Middle">
+					<ColumnListItem vAlign="Middle" type="Navigation" press=".onPress">
 						<cells>
-							<Text text="{FilteredErrors>Interface}"/>
-							<Text text="{FilteredErrors>Fecha}"/>
 							<Text text="{FilteredErrors>OrgVentas}"/>
-							<Text text="{FilteredErrors>Usuario}"/>
-							<Text text="{FilteredErrors>ClienteSAP}"/>
+							<Text text="{FilteredErrors>Fecha}"/>
+							<Text text="{FilteredErrors>Hora}"/>
+							<Text text="{FilteredErrors>Operacion}"/>
 							<Text text="{FilteredErrors>Mensaje}"/>
+							<Text text="{FilteredErrors>PedidoSAP}"/>
+							<Text text="{FilteredErrors>ClienteSAP}"/>
+							<Text text="{FilteredErrors>PedidoPortal}"/>
+							<Text text="{FilteredErrors>IdSite}"/>
+							<Text text="{FilteredErrors>Oportunidad}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
