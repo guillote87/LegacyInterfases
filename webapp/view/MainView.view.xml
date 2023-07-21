@@ -7,7 +7,7 @@
 	<Shell >
 	<Page id="page" title="{i18n>title}">
 		<VBox class="sapUiResponsiveMargin" alignContent="Center">
-			<l:HorizontalLayout id="TileContainerExpanded" allowWrapping="true" content="{path :'/tiles' ,factory :'.createTiles'}" class="sapUiResponsiveMargin">
+			<l:HorizontalLayout id="TileContainerExpanded" allowWrapping="true" content="{path :'/tiles' ,factory :'.createTiles'}" class="sapUiSmallMargin"  >
 			</l:HorizontalLayout>
 		</VBox>
 		<VBox class="sapUiResponsiveMargin" alignContent="Center">
@@ -64,43 +64,6 @@
 							<Text text="{FilteredErrors>PedidoPortal}"/>
 							<Text text="{FilteredErrors>IdSite}"/>
 							<Text text="{FilteredErrors>Oportunidad}"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
-		</VBox>
-<VBox class="sapUiResponsiveMargin" alignContent="Center">
-		
-			<Table id="interfasesFull" items="{interfases>/}" visible="true" growing="true" growingThreshold="10">
-				<columns>
-					<Column >
-						<Text text="Interface" />
-					</Column>
-					<Column >
-						<Text text="Fecha" />
-					</Column>
-					<Column >
-						<Text text="OrgVentas"/>
-					</Column>
-					<Column >
-						<Text text="Usuario"/>
-					</Column>
-					<Column >
-						<Text text="ClienteSap"/>
-					</Column>
-					<Column >
-						<Text text="Mensaje"/>
-					</Column>
-				</columns>
-				<items>
-					<ColumnListItem vAlign="Middle">
-						<cells>
-							<Text text="{interfases>Interface}"/>
-							<Text text="{interfases>Fecha}"/>
-							<Text text="{interfases>OrgVentas}"/>
-							<Text text="{interfases>Usuario}"/>
-							<Text text="{interfases>ClienteSAP}"/>
-							<Text text="{interfases>Mensaje}"/>
 						</cells>
 					</ColumnListItem>
 				</items>

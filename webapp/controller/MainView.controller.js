@@ -16,29 +16,8 @@ sap.ui.define([
             onInit: function () {
                 var oModel = new JSONModel("../model/tileError.json");
                 this.getView().setModel(oModel);
-
-                this.byId('interfasesFull').setBusy(true)
-                var interModel = this.getOwnerComponent().getModel('interfasesModel')
-
-                interModel.setHeaders({
-                    "sap-client": "300"
-                })
-
-                interModel.read("/LogsSet", {
-                    // filters: [
-                    //     new sap.ui.model.Filter("Interface", FilterOperator.EQ, '06')
-                    // ],
-                    success: function (data) {
-                        this.getView().setModel(new JSONModel(data.results), "interfases")
-                        this.byId('interfasesFull').setBusy(false)
-
-                    }.bind(this),
-                    error: function (e) {
-                        //
-                    }
-                });
             },
-            createTiles: function (sId,oContext) {
+            createTiles: function (sId, oContext) {
                 console.log(oContext)
                 var oColor = oContext.getProperty("color");
                 console.log(oColor)
