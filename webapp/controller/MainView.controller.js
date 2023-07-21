@@ -4,16 +4,16 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+    "legacy/utils/formatter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, JSONModel, Filter, FilterOperator) {
+    function (Controller, MessageToast, JSONModel, Filter, FilterOperator, formatter) {
         "use strict";
-
+        formatter: formatter
         return Controller.extend("legacy.controller.MainView", {
             onInit: function () {
-
                 var oModel = new JSONModel("../model/tileError.json");
                 this.getView().setModel(oModel);
 
@@ -37,6 +37,63 @@ sap.ui.define([
                         //
                     }
                 });
+            },
+            createTiles: function (sId,oContext) {
+                console.log(oContext)
+                var oColor = oContext.getProperty("color");
+                console.log(oColor)
+                switch (oColor) {
+                    case "Good":
+                        return new sap.m.GenericTile({
+                            header: oContext.getProperty("title"),
+                            subheader: oContext.getProperty("subtitle"),
+                            frameType: "OneByHalf",
+                            press: this.pressTile.bind(this),
+                            sizeBehavior: "Small",
+                            tileContent: new sap.m.TileContent({
+                                unit: oContext.getProperty("unit"),
+                                footer: oContext.getProperty("footer"),
+                                content: new sap.m.NumericContent({
+                                    value: oContext.getProperty("kpivalue"),
+                                })
+                            })
+                        }).addStyleClass("goodTileBackground sapUiTinyMargin");
+
+                    case "Critical":
+                        return new sap.m.GenericTile({
+                            header: oContext.getProperty("title"),
+                            subheader: oContext.getProperty("subtitle"),
+                            frameType: "OneByHalf",
+                            press: this.pressTile.bind(this),
+                            sizeBehavior: "Small",
+                            tileContent: new sap.m.TileContent({
+                                unit: oContext.getProperty("unit"),
+                                footer: oContext.getProperty("footer"),
+                                content: new sap.m.NumericContent({
+                                    value: oContext.getProperty("kpivalue"),
+                                }).addStyleClass("white")
+                            })
+                        }).addStyleClass("criticalTileBackground sapUiTinyMargin");
+
+                    case "Error":
+                        return new sap.m.GenericTile({
+                            header: oContext.getProperty("title"),
+                            subheader: oContext.getProperty("subtitle"),
+                            frameType: "OneByHalf",
+                            press: this.pressTile.bind(this),
+                            sizeBehavior: "Small",
+                            tileContent: new sap.m.TileContent({
+                                unit: oContext.getProperty("unit"),
+                                footer: oContext.getProperty("footer"),
+                                content: new sap.m.NumericContent({
+                                    value: oContext.getProperty("kpivalue"),
+                                })
+                            })
+                        }).addStyleClass("errorTileBackground sapUiTinyMargin");
+
+                    default:
+                        return null;
+                }
             },
             pressTile: function (event) {
                 var table = this.byId("interfaseTable")
@@ -63,7 +120,7 @@ sap.ui.define([
 
                         if (data.results.length) {
                             this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
-                       //     console.log(data)
+                            //     console.log(data)
 
                         } else {
                             MessageToast.show("No hay datos para mostrar")
@@ -112,12 +169,15 @@ sap.ui.define([
                 var itemPress = oEvent.getSource()
                 var oContext = itemPress.getBindingContext("FilteredErrors")
                 var oSelectedData = oContext.getObject()
-              
+
                 var oEventBus = sap.ui.getCore().getEventBus();
                 oEventBus.publish("appChannel", "selectedDataEvent", oSelectedData);
 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this)
                 oRouter.navTo("ErrorDetail")
-            }
+            },
+
+
         })
     })
+
