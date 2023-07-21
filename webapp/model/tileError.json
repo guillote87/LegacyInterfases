@@ -13,7 +13,7 @@
             "title": "Alta/Modif Pedidos",
             "subtitle": "Salesforce a SAP",
             "footer": "Interfase 2",
-            "kpivalue": 5,
+            "kpivalue": 20,
             "color": "Critical"
         },
         {
@@ -22,14 +22,14 @@
             "subtitle": "SAP a portales",
             "footer": "Interfase 3",
             "kpivalue": 225,
-            "color": "Critical"
+            "color": "Error"
         },
         {
             "id": "04",
             "title": "Modificar Pedidos",
             "subtitle": "SAP a Salesforce",
             "footer": "Interfase 4",
-            "kpivalue": 3,
+            "kpivalue": 300,
             "color": "Error"
         },
         {
@@ -38,7 +38,7 @@
             "subtitle": "Sap a Salesforce",
             "footer": "Interfase 5",
             "kpivalue": 1,
-            "color": "Critical"
+            "color": "Good"
         },
         {
             "id": "06",
@@ -53,7 +53,7 @@
             "title": "Aviso de Pago de MercadoPago",
             "subtitle": "Sap a Salesforce",
             "footer": "Interfase 7",
-            "kpivalue": 1,
+            "kpivalue": 600,
             "color": "Critical"
         }
     ]
