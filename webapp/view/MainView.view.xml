@@ -4,6 +4,7 @@
 	xmlns:core="sap.ui.core"
 	xmlns:chart="sap.suite.ui.microchart"
 	xmlns:l="sap.ui.layout">
+	<Shell >
 	<Page id="page" title="{i18n>title}">
 		<VBox class="sapUiResponsiveMargin" alignContent="Center">
 			<l:HorizontalLayout id="TileContainerExpanded" allowWrapping="true" content="{path :'/tiles' ,factory :'.createTiles'}" class="sapUiResponsiveMargin">
@@ -106,4 +107,5 @@
 			</Table>
 		</VBox>
 	</Page>
+	</Shell>
 </mvc:View>
