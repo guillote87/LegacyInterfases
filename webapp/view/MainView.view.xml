@@ -6,7 +6,7 @@
 	xmlns:l="sap.ui.layout">
 	<Shell >
 	<Page id="page" title="{i18n>title}">
-		<VBox class="sapUiResponsiveMargin" alignContent="Center">
+		<VBox class="sapUiResponsiveMargin">
 			<l:HorizontalLayout id="TileContainerExpanded" allowWrapping="true" content="{path :'/tiles' ,factory :'.createTiles'}" class="sapUiSmallMargin"  >
 			</l:HorizontalLayout>
 		</VBox>

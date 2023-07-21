@@ -18,9 +18,8 @@ sap.ui.define([
                 this.getView().setModel(oModel);
             },
             createTiles: function (sId, oContext) {
-                console.log(oContext)
                 var oColor = oContext.getProperty("color");
-                console.log(oColor)
+
                 switch (oColor) {
                     case "Good":
                         return new sap.m.GenericTile({
@@ -117,7 +116,6 @@ sap.ui.define([
                 // Cambiar a visible los elementos
                 table.setVisible(true)
                 this.byId("search").setVisible(true)
-                this.byId("interfasesFull").setVisible(false)
             },
 
 
