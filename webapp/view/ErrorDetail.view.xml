@@ -11,7 +11,7 @@
 		</forms:layout>
 		<forms:formContainers>
 
-			<forms:FormContainer id="ErrorInfo" title="Addresses">
+			<forms:FormContainer id="ErrorInfo" title="Info">
 				<forms:formElements>
 
 					<forms:FormElement label="Interface">
