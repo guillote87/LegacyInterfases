@@ -19,19 +19,19 @@
 	
 			<Table id="interfaseTable" items="{FilteredErrors>/}" visible="false" growing="true"  growingThreshold="10">
 				<columns>
-					<Column >
+						<Column >
 						<Text text="OrgVentas"/>
 					</Column>
-					<Column >
+					<Column minScreenWidth="Small" demandPopin="true" >
 						<Text text="Fecha" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Small" demandPopin="true" >
 						<Text text="Hora" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Small" demandPopin="false">
 						<Text text="Operacion" />
 					</Column>
-					<Column >
+						<Column minScreenWidth="Small" demandPopin="true" >
 						<Text text="Mensaje"/>
 					</Column>
 						<Column >
@@ -40,13 +40,12 @@
 					<Column >
 						<Text text="ClienteSap"/>
 					</Column>
-						<Column >
+						<Column minScreenWidth="Small" demandPopin="false">
 						<Text text="PedidoPortal"/>
 					</Column>
-						<Column >
+						<Column minScreenWidth="Small" demandPopin="false">
 						<Text text="IdSite"/>
 					</Column>
-					
 					<Column >
 						<Text text="Oportunidad"/>
 					</Column>
