@@ -74,7 +74,7 @@ sap.ui.define([
                 }
             },
             pressTile: function (event) {
-                var table = this.byId("interfaseTable")
+                var table = this.byId("tableVBox")
                 this.getView().setModel(new JSONModel([]), "FilteredErrors")
 
                 table.setBusy(true)
