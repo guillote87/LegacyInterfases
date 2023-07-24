@@ -49,7 +49,7 @@ sap.ui.define([
                                 footer: oContext.getProperty("footer"),
                                 content: new sap.m.NumericContent({
                                     value: oContext.getProperty("kpivalue"),
-                                }).addStyleClass("white")
+                                })
                             })
                         }).addStyleClass("criticalTileBackground sapUiTinyMargin");
 
@@ -115,15 +115,12 @@ sap.ui.define([
 
                 // Cambiar a visible los elementos
                 table.setVisible(true)
-                this.byId("search").setVisible(true)
-            },
-
-
+                          },
             searchFilter: function () {
                 this.byId("interfaseTable").setBusy(true)
 
                 var aFilters = [];
-                var filter = this.byId("searchFilter").getValue()
+                var filter = this.byId("orgVta").getValue()
 
                 var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "YYYYMMdd" });
                 var fromDate = dateFormat.format(this.getView().byId("fecha").getDateValue());
@@ -153,7 +150,10 @@ sap.ui.define([
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this)
                 oRouter.navTo("ErrorDetail")
             },
-
+            onCleanFilters: function () {
+                this.getView().byId("fecha").setValue(null);
+                this.getView().byId("orgVta").setValue(null);
+            }
 
         })
     })

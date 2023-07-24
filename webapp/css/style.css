@@ -3,15 +3,20 @@
     --tile-error: #CF3721;
     --tile-critical: #F5BE41;
     --tile-good: #258039;
-
 }
 
-html.sap-desktop .sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage) {
+.stretch span {
+    width: 10%;
+}
+
+
+/* OPCION1 */
+/* html.sap-desktop .sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage) {
     background: grey;
-}
+} */
 
 /* background-color: var(--main-bg-color); */
-.sapMNCValue.Neutral {
+/* .sapMNCValue.Neutral {
     color: #fff
 }
 
@@ -25,9 +30,6 @@ html.sap-desktop .sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImag
     background-color: orange;
 }
 
-/* .sapMNCLargeFontSize {
-    font-size: 2rem !important;
-} */
 .white {
     color: #fff
 }
@@ -47,4 +49,63 @@ html.sap-desktop .sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImag
 .errorTileBackground {
     color: #fff;
     background-color: var(--tile-error)
+} */
+
+/* FIN OPCION1 */
+
+
+
+/* OPCION 2 */
+
+/* 
+.sapMNCValue{
+    justify-content: center;
+}
+.goodTileBackground  {
+    color: #fff;
+    background-color: var(--tile-good);
+    border-radius: 1.5rem;
+    width: 50%;
+  
+}
+
+.criticalTileBackground {
+    color: #fff;
+    background-color: var(--tile-critical);
+    border-radius: 1.5rem;
+   
+}
+
+.errorTileBackground {
+    color: #fff;
+    background-color: var(--tile-error);
+    border-radius: 1.5rem;
+
+} */
+
+/* OPCION 3 */
+
+ .goodTileBackground {
+    border: 3px solid var(--tile-good);
+}
+
+.goodTileBackground:active {
+    border: 3px solid var(--tile-good);
+}
+
+.criticalTileBackground {
+
+    border: 3px solid var(--tile-critical);
+}
+
+.errorTileBackground {
+
+    border: 3px solid var(--tile-error);
+} 
+
+html.sap-desktop .sapMGT:focus .sapMGTFocusDiv {
+    border: 0.125rem solid transparent;
+    border-radius: 1rem;
+    box-shadow: none;
+    inset: -1px;
 }
