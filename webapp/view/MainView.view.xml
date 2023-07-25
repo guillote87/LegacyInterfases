@@ -16,16 +16,23 @@
 				<SearchField id="searchFilter" placeholder="Buscar Org. Venta" search="searchFilter" width="15rem"/>
 				<DateRangeSelection id="fecha" width="13rem" valueFormat="YYYYMMdd" displayFormat="dd.MM.yyyy" change="searchFilter"/>
 			</OverflowToolbar> -->
-				<fb:FilterBar id="filterBar"  useToolbar="false" reset="onReset"  search="searchFilter" clear="onClear" cancel="onCancel">
+				<fb:FilterBar id="filterBar" useToolbar="false" reset="onReset" search="searchFilter" clear="onClear" cancel="onCancel">
 					<fb:filterGroupItems>
-						<fb:FilterGroupItem  groupName="G1" visibleInFilterBar="true" name="orgvta" label="Org Venta" >
-							<fb:control >
-								<Input id="orgVta" ></Input>
+						<fb:FilterGroupItem groupName="G1" visibleInFilterBar="true" name="orgvta" label="Org Venta">
+							<fb:control  >
+								<!-- <Input id="orgVta" width="50%"></Input> -->
+								<ComboBox id="orgVta" showSecondaryValues="true" items="{
+										model: 'org',
+										path: '/OrgVentaSet',
+										sorter: { path: 'Nombre' }
+										}">
+									<core:ListItem key="{org>Id}" text="{org>Id}" additionalText="{org>Nombre}" />
+								</ComboBox>
 							</fb:control>
 						</fb:FilterGroupItem>
 						<fb:FilterGroupItem groupName="G2" name="fecha" label="{i18n>dateRange}" visibleInFilterBar="true">
 							<fb:control  >
-								<DateRangeSelection id="fecha" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy" change="onDateChange" />
+								<DateRangeSelection id="fecha" valueFormat="dd.MM.yyyy" displayFormat='MMMM d, yyyy' change="onDateChange" />
 							</fb:control>
 						</fb:FilterGroupItem>
 						<fb:FilterGroupItem groupName="G3" name=" " visibleInFilterBar="true" label="Limpiar Filtros">
@@ -36,7 +43,7 @@
 					</fb:filterGroupItems>
 				</fb:FilterBar>
 
-				<Table id="interfaseTable"  items="{FilteredErrors>/}" growing="true" growingThreshold="10">
+				<Table id="interfaseTable" items="{FilteredErrors>/}" growing="true" growingThreshold="10">
 					<columns>
 						<Column >
 							<Text text="OrgVentas"/>
@@ -73,8 +80,23 @@
 						<ColumnListItem vAlign="Middle" type="Navigation" press=".onPress">
 							<cells>
 								<Text text="{FilteredErrors>OrgVentas}"/>
-								<Text text="{FilteredErrors>Fecha}"/>
-								<Text text="{FilteredErrors>Hora}"/>
+								<Text text="{path: 'FilteredErrors>Fecha',
+											 type:'sap.ui.model.type.Date',
+											 formatOptions: {
+															style:'long',
+															source: {
+														pattern: 'MMMM d, yyyy'
+														}
+														}
+														}"/>
+								<Text text="{path:'FilteredErrors>Hora',
+											 type:'sap.ui.model.type.Time',
+											 formatOptions: {
+															source: {
+														pattern: 'HH:mm:ss'
+														}
+														}
+														}"/>
 								<Text text="{FilteredErrors>Operacion}"/>
 								<Text text="{FilteredErrors>Mensaje}"/>
 								<Text text="{FilteredErrors>PedidoSAP}"/>

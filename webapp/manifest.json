@@ -24,6 +24,15 @@
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
+      },
+      "orgSales": {
+        "uri": "/sap/opu/odata/sap/ZGW_REST_SERVICES/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
       }
     }
   },
@@ -71,6 +80,11 @@
       },
       "interfasesModel": {
         "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "org": {
+        "dataSource": "orgSales",
         "preload": true,
         "settings": {}
       }
