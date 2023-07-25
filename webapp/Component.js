@@ -26,6 +26,8 @@ sap.ui.define([
 
                 // enable routing
                 this.getRouter().initialize();
+                
+                this.setModel(new sap.ui.model.json.JSONModel() , "TempDataModel");
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");

@@ -5,18 +5,17 @@ sap.ui.define([
     "use strict";
     return Controller.extend("legacy.controller.ErrorDetail", {
         onInit: function () {
-            var oEventBus = sap.ui.getCore().getEventBus();
-            oEventBus.subscribe("appChannel", "selectedDataEvent", this.onSelectedDataReceived, this)
+            this.getView().setModel("TempDataModel")
+            // var oEventBus = sap.ui.getCore().getEventBus();
+            // oEventBus.subscribe("appChannel", "selectedDataEvent", this.onSelectedDataReceived, this)
         },
-        onSelectedDataReceived: function (sChannelId, sEventId, oData) {
-            console.log("Selected Data from View1:", oData);
-
-            if (oData) {
-                var oDetailModel = new JSONModel([oData])
-
-            }
-            this.getView().setModel(oDetailModel, "FilteredErrors")
-        },
+        // onSelectedDataReceived: function (sChannelId, sEventId, oData) {
+        //     console.log("Selected Data from View1:", oData);
+        //     if (oData) {
+        //         var oDetailModel = new JSONModel([oData])
+        //     }
+        //     this.getView().setModel(oDetailModel, "FilteredErrors")
+        // },
 
     })
 });

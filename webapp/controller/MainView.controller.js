@@ -141,8 +141,10 @@ sap.ui.define([
                 var oContext = itemPress.getBindingContext("FilteredErrors")
                 var oSelectedData = oContext.getObject()
 
-                var oEventBus = sap.ui.getCore().getEventBus();
-                oEventBus.publish("appChannel", "selectedDataEvent", oSelectedData);
+                // var oEventBus = sap.ui.getCore().getEventBus();
+                // oEventBus.publish("appChannel", "selectedDataEvent", oSelectedData);
+
+                this.getView().getModel("TempDataModel").setData(oSelectedData)
 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this)
                 oRouter.navTo("ErrorDetail")
