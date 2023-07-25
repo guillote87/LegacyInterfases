@@ -82,7 +82,6 @@ sap.ui.define([
                 var sPath = event.getSource().getBindingContext().sPath
                 var oModel = this.getView().getModel()
                 var oContext = oModel.getProperty(sPath);
-                //console.log(oContext)
 
                 var filterInterface = this.getOwnerComponent().getModel('interfasesModel')
 
@@ -111,11 +110,9 @@ sap.ui.define([
                     }
                 })
 
-
-
                 // Cambiar a visible los elementos
                 table.setVisible(true)
-                          },
+            },
             searchFilter: function () {
                 this.byId("interfaseTable").setBusy(true)
 
@@ -153,6 +150,9 @@ sap.ui.define([
             onCleanFilters: function () {
                 this.getView().byId("fecha").setValue(null);
                 this.getView().byId("orgVta").setValue(null);
+                var aFilters = [];
+                this.byId("interfaseTable").getBinding("items").filter(aFilters);
+
             }
 
         })
