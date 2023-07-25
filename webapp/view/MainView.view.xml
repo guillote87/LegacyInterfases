@@ -43,12 +43,19 @@
 					</fb:filterGroupItems>
 				</fb:FilterBar>
 
-				<Table id="interfaseTable" items="{FilteredErrors>/}" growing="true" growingThreshold="10">
+				<Table id="interfaseTable" 
+					   items="{path:'FilteredErrors>/',
+					           sorter: {path: 'FilteredErrors>Fecha',
+							   descending: true
+							   }}"  
+				       growing="true" 
+					   growingThreshold="30"
+					   >
 					<columns>
 						<Column >
 							<Text text="OrgVentas"/>
 						</Column>
-						<Column minScreenWidth="Small" demandPopin="true">
+						<Column minScreenWidth="Small" width="auto" demandPopin="true">
 							<Text text="Fecha" />
 						</Column>
 						<Column minScreenWidth="Small" demandPopin="true">

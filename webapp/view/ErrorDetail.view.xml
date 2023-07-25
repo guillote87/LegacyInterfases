@@ -28,13 +28,24 @@
 
 					<forms:FormElement label="Fecha">
 						<forms:fields>
-							<Text text="{FilteredErrors>/0/Fecha}"/>
+							<Text text="{path: 'FilteredErrors>/0/Fecha',
+											 type:'sap.ui.model.type.Date',
+											 formatOptions: {
+															style:'long',
+															source: {
+														pattern: 'MMMM d, yyyy'
+														}}}"/>
 						</forms:fields>
 					</forms:FormElement>
 
 					<forms:FormElement label="Hora">
 						<forms:fields>
-							<Text text="{FilteredErrors>/0/Hora}"/>
+							<Text text="{path:'FilteredErrors>/0/Hora',
+											 type:'sap.ui.model.type.Time',
+											 formatOptions: {
+															source: {
+														pattern: 'HH:mm:ss'
+														}}}"/>
 						</forms:fields>
 					</forms:FormElement>
 
