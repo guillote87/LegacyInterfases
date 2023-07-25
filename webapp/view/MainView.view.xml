@@ -32,7 +32,7 @@
 						</fb:FilterGroupItem>
 						<fb:FilterGroupItem groupName="G2" name="fecha" label="{i18n>dateRange}" visibleInFilterBar="true">
 							<fb:control  >
-								<DateRangeSelection id="fecha" valueFormat="dd.MM.yyyy" displayFormat='MMMM d, yyyy' change="onDateChange" />
+								<DateRangeSelection id="fecha" valueFormat="dd.MM.yyyy" displayFormat='dd/MM/yyyy' change="onDateChange" />
 							</fb:control>
 						</fb:FilterGroupItem>
 						<fb:FilterGroupItem groupName="G3" name=" " visibleInFilterBar="true" label="Limpiar Filtros">
@@ -43,14 +43,10 @@
 					</fb:filterGroupItems>
 				</fb:FilterBar>
 
-				<Table id="interfaseTable" 
-					   items="{path:'FilteredErrors>/',
+				<Table id="interfaseTable" items="{path:'FilteredErrors>/',
 					           sorter: {path: 'Fecha',
 							   descending: true
-							   }}"  
-				       growing="true" 
-					   growingThreshold="30"
-					   >
+							   }}" growing="true" growingThreshold="30">
 					<columns>
 						<Column >
 							<Text text="OrgVentas"/>
@@ -90,20 +86,16 @@
 								<Text text="{path: 'FilteredErrors>Fecha',
 											 type:'sap.ui.model.type.Date',
 											 formatOptions: {
-															style:'long',
-															source: {
-														pattern: 'MMMM d, yyyy'
-														}
+												source:{},
+														pattern: 'dd/MM/yyyy'
 														}
 														}"/>
 								<Text text="{path:'FilteredErrors>Hora',
 											 type:'sap.ui.model.type.Time',
 											 formatOptions: {
-															source: {
+															source: {},
 														pattern: 'HH:mm:ss'
-														}
-														}
-														}"/>
+														}}"/>
 								<Text text="{FilteredErrors>Operacion}"/>
 								<Text text="{FilteredErrors>Mensaje}"/>
 								<Text text="{FilteredErrors>PedidoSAP}"/>
