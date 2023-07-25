@@ -45,7 +45,7 @@
 
 				<Table id="interfaseTable" 
 					   items="{path:'FilteredErrors>/',
-					           sorter: {path: 'FilteredErrors>Fecha',
+					           sorter: {path: 'Fecha',
 							   descending: true
 							   }}"  
 				       growing="true" 
