@@ -3,9 +3,9 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page >
+
 		<VBox class="sapUiSmallMargin">
-			<f:SimpleForm id="info" editable="false" layout="ResponsiveGridLayout" title="LOG {TempDataModel>/IdLog}" columnsM="2" columnsL="3" columnsXL="4">
+			<f:SimpleForm id="info" editable="false" layout="ResponsiveGridLayout" title="LOG {TempDataModel>/IdLog}"  columnsM="2" columnsL="2" columnsXL="2" 	singleContainerFullSize="false">
 				<f:content>
 					<core:Title text="Info" />
 					<Label text="Interface" />
@@ -21,7 +21,7 @@
 														pattern: 'MMMM d, yyyy'
 														}}}"/>
 					<Label text="Hora" />
-					<Text text="{path:'TempDataModel>/Hora',
+					<Text  text="{path:'TempDataModel>/Hora',
 											 type:'sap.ui.model.type.Time',
 											 formatOptions: {
 															source: {
@@ -38,8 +38,13 @@
 					<Text text="{TempDataModel>/PedidoPortal}"/>
 					<Label text="Id Site" />
 					<Text text="{TempDataModel>/IdSite}"/>
+
+						
+					<core:Title text="Error" />
+					<Label text="Log" />
+					<TextArea value="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" rows="8" />
 				</f:content>
 			</f:SimpleForm>
 		</VBox>
-	</Page>
+
 </mvc:View>
