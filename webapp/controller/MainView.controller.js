@@ -4,14 +4,17 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "legacy/utils/formatter"
+    "legacy/utils/formatter",
+     'sap/ui/export/library',
+    'sap/ui/export/Spreadsheet'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, JSONModel, Filter, FilterOperator, formatter) {
+    function (Controller, MessageToast, JSONModel, Filter, FilterOperator, formatter,exportLibrary, Spreadsheet) {
         "use strict";
-        formatter: formatter
+        var EdmType = exportLibrary.EdmType
+    
         return Controller.extend("legacy.controller.MainView", {
             onInit: function () {
                 var oModel = new JSONModel("../model/tileError.json");
@@ -155,6 +158,101 @@ sap.ui.define([
                 var aFilters = [];
                 this.byId("interfaseTable").getBinding("items").filter(aFilters);
 
+            },
+            createColumnConfig: function () {
+                var aCols = [];
+
+                aCols.push({
+                    label: 'Org. Ventas',
+                    type: EdmType.String,
+                    property: 'OrgVentas',
+                    template: '{0}'
+                });
+
+                aCols.push({
+                    label: 'Fecha',
+                    type: EdmType.Number,
+                    property: 'Fecha',
+                    scale: 0
+                });
+                aCols.push({
+                    label: 'Hora',
+                    type: EdmType.Number,
+                    property: 'Hora',
+                    scale: 0
+                });
+                aCols.push({
+                    label: 'Operacion',
+                    type: EdmType.String,
+                    property: 'Operacion',
+                    scale: 0
+                });
+                aCols.push({
+                    label: 'Mensaje',
+                    type: EdmType.String,
+                    property: 'Mensaje',
+                    scale: 0
+                });
+                aCols.push({
+                    label: 'Pedido SAP',
+                    type: EdmType.Number,
+                    property: 'PedidoSAP',
+                    scale: 0
+                });
+                aCols.push({
+                    label: 'Cliente SAP',
+                    type: EdmType.Number,
+                    property: 'ClienteSAP',
+                    scale: 0
+                });
+                aCols.push({
+                    label: 'Pedido Portal',
+                    type: EdmType.Number,
+                    property: 'PedidoPortal',
+                    scale: 0
+                });
+                aCols.push({
+                    label: 'Id Site',
+                    type: EdmType.Number,
+                    property: 'IdSite',
+                    scale: 0
+                });
+                aCols.push({
+                    label: 'Oportunidad',
+                    type: EdmType.String,
+                    property: 'Oportunidad',
+                    scale: 0
+                });
+
+
+                return aCols;
+            },
+
+            exportToExcel: function () {
+                var aCols, oRowBinding, oSettings, oSheet, oTable;
+
+                if (!this._oTable) {
+                    this._oTable = this.byId('interfaseTable');
+                }
+
+                oTable = this._oTable;
+                oRowBinding = oTable.getBinding('items');
+                aCols = this.createColumnConfig();
+
+                oSettings = {
+                    workbook: {
+                        columns: aCols,
+                        hierarchyLevel: 'Level'
+                    },
+                    dataSource: oRowBinding,
+                    fileName: 'Table export sample.xlsx',
+                    worker: false // We need to disable worker because we are using a MockServer as OData Service
+                };
+
+                oSheet = new Spreadsheet(oSettings);
+                oSheet.build().finally(function () {
+                    oSheet.destroy();
+                });
             }
 
         })

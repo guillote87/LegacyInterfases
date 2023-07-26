@@ -47,9 +47,15 @@
 					           sorter: {path: 'Fecha',
 							   descending: true
 							   }}" growing="true" growingThreshold="30">
+							   <headerToolbar>
+				<OverflowToolbar>
+					<ToolbarSpacer></ToolbarSpacer>
+					<Button icon="sap-icon://excel-attachment" press="exportToExcel" />
+				</OverflowToolbar>
+			</headerToolbar>
 					<columns>
 						<Column >
-							<Text text="OrgVentas"/>
+							<Text text="Org. Ventas"/>
 						</Column>
 						<Column minScreenWidth="Small" width="auto" demandPopin="true">
 							<Text text="Fecha" />
