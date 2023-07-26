@@ -3,7 +3,7 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc">
-
+<Page>
 		<VBox class="sapUiSmallMargin">
 			<f:SimpleForm id="info" editable="false" layout="ResponsiveGridLayout" title="LOG {TempDataModel>/IdLog}"  columnsM="2" columnsL="2" columnsXL="2" 	singleContainerFullSize="false">
 				<f:content>
@@ -15,16 +15,19 @@
 					<Label text="Fecha" />
 					<Text text="{path: 'TempDataModel>/Fecha',
 											 type:'sap.ui.model.type.Date',
-											 formatOptions:{source:{
-											 pattern: 'yyyy/MM/dd'}}}"/>
+											formatOptions: {
+												source:{},
+														pattern: 'dd/MM/yyyy'
+														}
+														}"/>
 											
 					<Label text="Hora" />
 					<Text  text="{path:'TempDataModel>/Hora',
 											 type:'sap.ui.model.type.Time',
 											 formatOptions: {
-															source: {
+															source: {},
 														pattern: 'HH:mm:ss'
-														}}}"/>
+														}}"/>
 
 					
 					<core:Title text="Info Pedido" />
@@ -44,5 +47,5 @@
 				</f:content>
 			</f:SimpleForm>
 		</VBox>
-
+</Page>
 </mvc:View>
