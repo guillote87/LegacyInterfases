@@ -33,7 +33,7 @@
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
-      }
+      }      
     }
   },
   "sap.ui": {
@@ -87,6 +87,11 @@
         "dataSource": "orgSales",
         "preload": true,
         "settings": {}
+      },
+      "log": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {
@@ -119,7 +124,7 @@
         },
         {
           "name": "ErrorDetail",
-          "pattern": "ErrorDetail",
+          "pattern": "ErrorDetail/{IdLog}",
           "target": [
             "ErrorDetail"
           ]

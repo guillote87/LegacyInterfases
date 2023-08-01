@@ -150,7 +150,7 @@ sap.ui.define([
                 this.getView().getModel("TempDataModel").setData(oSelectedData)
 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this)
-                oRouter.navTo("ErrorDetail")
+                oRouter.navTo("ErrorDetail",{IdLog : oSelectedData.IdLog})
             },
             onCleanFilters: function () {
                 this.getView().byId("fecha").setValue(null);
