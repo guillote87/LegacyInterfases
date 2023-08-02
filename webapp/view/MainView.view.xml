@@ -43,12 +43,13 @@
 					</fb:filterGroupItems>
 				</fb:FilterBar>
 
-				<Table id="interfaseTable" items="{path:'FilteredErrors>/',
+				<Table  id="interfaseTable" items="{path:'FilteredErrors>/',
 					           sorter: {path: 'Fecha',
 							   descending: true
 							   }}" growing="true" growingThreshold="30">
 							   <headerToolbar>
 				<OverflowToolbar>
+					<Title id="table-title" textAlign="Left"></Title>
 					<ToolbarSpacer></ToolbarSpacer>
 					<Button icon="sap-icon://excel-attachment" press="exportToExcel" />
 				</OverflowToolbar>

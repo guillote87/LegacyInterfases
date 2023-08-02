@@ -5,16 +5,16 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "legacy/utils/formatter",
-     'sap/ui/export/library',
+    'sap/ui/export/library',
     'sap/ui/export/Spreadsheet'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, JSONModel, Filter, FilterOperator, formatter,exportLibrary, Spreadsheet) {
+    function (Controller, MessageToast, JSONModel, Filter, FilterOperator, formatter, exportLibrary, Spreadsheet) {
         "use strict";
         var EdmType = exportLibrary.EdmType
-    
+
         return Controller.extend("legacy.controller.MainView", {
             onInit: function () {
                 var oModel = new JSONModel("../model/tileError.json");
@@ -114,6 +114,7 @@ sap.ui.define([
                 })
 
                 // Cambiar a visible los elementos
+                this.getView().byId("table-title").setText("Interfase " +  oContext.id)
                 table.setVisible(true)
             },
             searchFilter: function () {
@@ -150,7 +151,7 @@ sap.ui.define([
                 this.getView().getModel("TempDataModel").setData(oSelectedData)
 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this)
-                oRouter.navTo("ErrorDetail",{IdLog : oSelectedData.IdLog})
+                oRouter.navTo("ErrorDetail", { IdLog: oSelectedData.IdLog })
             },
             onCleanFilters: function () {
                 this.getView().byId("fecha").setValue(null);
