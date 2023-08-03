@@ -6,23 +6,56 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     "legacy/utils/formatter",
     'sap/ui/export/library',
-    'sap/ui/export/Spreadsheet'
+    'sap/ui/export/Spreadsheet',
+    "sap/ui/core/format/NumberFormat"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, JSONModel, Filter, FilterOperator, formatter, exportLibrary, Spreadsheet) {
+    function (Controller, MessageToast, JSONModel, Filter, FilterOperator, formatter, exportLibrary, Spreadsheet, NumberFormat) {
         "use strict";
         var EdmType = exportLibrary.EdmType
 
         return Controller.extend("legacy.controller.MainView", {
             onInit: function () {
+                this.getCounterError()
+            },
+            getCounterError: function () {
                 var oModel = new JSONModel("../model/tileError.json");
-                this.getView().setModel(oModel);
+                var Errors = this.getOwnerComponent().getModel('oDataInterfasesModel')
+
+                Errors.setHeaders({
+                    "sap-client": "300"
+                })
+
+                Errors.read("/CantLogsSet", {
+                    filters: [
+                        new sap.ui.model.Filter("Interface", FilterOperator.EQ, '01'),
+                    ],
+                    success: function (data) {
+                        if (data.results.length) {
+                            console.log(data)
+                            data.results.forEach(function (result, index) {
+                                oModel.setProperty('/tiles/' + index + '/kpivalue', result.Cantidad.replace(".", ""));
+                            })
+                            oModel.refresh()
+                            this.getView().setModel(oModel);
+                            console.log(oModel)
+
+                        } else {
+                            MessageToast.show("No hay datos para mostrar")
+                            this.getView().setModel(oModel);
+                        }
+
+                    }.bind(this),
+                    error: function (e) {
+                        //
+                    }
+                })
+
             },
             createTiles: function (sId, oContext) {
                 var oColor = oContext.getProperty("color");
-
                 switch (oColor) {
                     case "Good":
                         return new sap.m.GenericTile({
@@ -86,7 +119,7 @@ sap.ui.define([
                 var oModel = this.getView().getModel()
                 var oContext = oModel.getProperty(sPath);
 
-                var filterInterface = this.getOwnerComponent().getModel('interfasesModel')
+                var filterInterface = this.getOwnerComponent().getModel('oDataInterfasesModel')
 
                 filterInterface.setHeaders({
                     "sap-client": "300"
@@ -100,8 +133,6 @@ sap.ui.define([
 
                         if (data.results.length) {
                             this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
-                            //     console.log(data)
-
                         } else {
                             MessageToast.show("No hay datos para mostrar")
                             this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
@@ -114,7 +145,7 @@ sap.ui.define([
                 })
 
                 // Cambiar a visible los elementos
-                this.getView().byId("table-title").setText("Interfase " +  oContext.id)
+                this.getView().byId("table-title").setText("Interfase " + oContext.id)
                 table.setVisible(true)
             },
             searchFilter: function () {

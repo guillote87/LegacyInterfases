@@ -78,18 +78,13 @@
           "bundleName": "legacy.i18n.i18n"
         }
       },
-      "interfasesModel": {
+      "oDataInterfasesModel": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {}
       },
       "org": {
         "dataSource": "orgSales",
-        "preload": true,
-        "settings": {}
-      },
-      "log": {
-        "dataSource": "mainService",
         "preload": true,
         "settings": {}
       }

@@ -19,7 +19,7 @@ sap.ui.define([
             oArgs = oEvent.getParameter("arguments");
             oView = this.getView();
 
-            var log = this.getOwnerComponent().getModel('log')
+            var log = this.getOwnerComponent().getModel('oDataInterfasesModel')
 
             log.setHeaders({
                 'sap-client': "300"
