@@ -69,6 +69,7 @@ sap.ui.define([
                                 footer: oContext.getProperty("footer"),
                                 content: new sap.m.NumericContent({
                                     value: oContext.getProperty("kpivalue"),
+                                    truncateValueTo: 8
                                 })
                             })
                         }).addStyleClass("goodTileBackground sapUiTinyMargin");
@@ -85,6 +86,7 @@ sap.ui.define([
                                 footer: oContext.getProperty("footer"),
                                 content: new sap.m.NumericContent({
                                     value: oContext.getProperty("kpivalue"),
+                                    truncateValueTo: 8
                                 })
                             })
                         }).addStyleClass("criticalTileBackground sapUiTinyMargin");
@@ -101,6 +103,7 @@ sap.ui.define([
                                 footer: oContext.getProperty("footer"),
                                 content: new sap.m.NumericContent({
                                     value: oContext.getProperty("kpivalue"),
+                                    truncateValueTo: 8
                                 })
                             })
                         }).addStyleClass("errorTileBackground sapUiTinyMargin");
