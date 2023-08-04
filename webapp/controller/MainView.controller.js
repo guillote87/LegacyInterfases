@@ -55,9 +55,9 @@ sap.ui.define([
 
             },
             createTiles: function (sId, oContext) {
-                var oColor = oContext.getProperty("color");
-                switch (oColor) {
-                    case "Good":
+                var Cantidad = oContext.getProperty("kpivalue");
+                switch (true) {
+                    case (Cantidad == 0):
                         return new sap.m.GenericTile({
                             header: oContext.getProperty("title"),
                             subheader: oContext.getProperty("subtitle"),
@@ -74,7 +74,7 @@ sap.ui.define([
                             })
                         }).addStyleClass("goodTileBackground sapUiTinyMargin");
 
-                    case "Critical":
+                    case (Cantidad > 0 && Cantidad < 40):
                         return new sap.m.GenericTile({
                             header: oContext.getProperty("title"),
                             subheader: oContext.getProperty("subtitle"),
@@ -91,7 +91,7 @@ sap.ui.define([
                             })
                         }).addStyleClass("criticalTileBackground sapUiTinyMargin");
 
-                    case "Error":
+                    case (Cantidad > 20):
                         return new sap.m.GenericTile({
                             header: oContext.getProperty("title"),
                             subheader: oContext.getProperty("subtitle"),
