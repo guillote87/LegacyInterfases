@@ -6,7 +6,7 @@
 	xmlns:fb="sap.ui.comp.filterbar"
 	xmlns:l="sap.ui.layout">
 	<Shell >
-		<Page id="page" title="{i18n>title}">
+		<Page id="page" title="{i18n>title}" showNavButton="false" navButtonPress="onNavBack">
 			<VBox class="sapUiResponsiveMargin">
 				<l:HorizontalLayout id="TileContainerExpanded" allowWrapping="true" content="{path :'/tiles' ,factory :'.createTiles'}" class="sapUiSmallMargin">
 				</l:HorizontalLayout>

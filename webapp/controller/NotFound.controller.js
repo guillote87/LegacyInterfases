@@ -1,8 +1,8 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
- ], function (Controller) {
+    "legacy/controller/BaseController"
+ ], function (BaseController) {
     "use strict";
-    return Controller.extend("legacy.controller.NotFound", {
+    return BaseController.extend("legacy.controller.NotFound", {
        onInit: function () {
        }
     });

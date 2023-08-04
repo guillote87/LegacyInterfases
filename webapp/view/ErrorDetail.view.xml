@@ -3,7 +3,8 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc">
-<Page>
+	<Shell >
+<Page id="page" title="{i18n>title}" showNavButton="true" navButtonPress="onNavBack">
 		<VBox class="sapUiSmallMargin">
 			<f:SimpleForm id="info" editable="false" layout="ResponsiveGridLayout" title="LOG {TempDataModel>/IdLog}"  columnsM="2" columnsL="2" columnsXL="2" 	singleContainerFullSize="false">
 				<f:content>
@@ -48,4 +49,5 @@
 			</f:SimpleForm>
 		</VBox>
 </Page>
+	</Shell >
 </mvc:View>

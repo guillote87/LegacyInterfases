@@ -1,12 +1,12 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "legacy/controller/BaseController",
     'sap/m/MessageToast',
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator"
-], function (Controller, MessageToast, JSONModel, Filter, FilterOperator) {
+], function (BaseController, MessageToast, JSONModel, Filter, FilterOperator) {
     "use strict";
-    return Controller.extend("legacy.controller.ErrorDetail", {
+    return BaseController.extend("legacy.controller.ErrorDetail", {
         onInit: function () {
             this.getView().setModel("TempDataModel")
 

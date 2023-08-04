@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "legacy/controller/BaseController",
     'sap/m/MessageToast',
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
@@ -9,14 +9,12 @@ sap.ui.define([
     'sap/ui/export/Spreadsheet',
     "sap/ui/core/format/NumberFormat"
 ],
-    /**
-     * @param {typeof sap.ui.core.mvc.Controller} Controller
-     */
-    function (Controller, MessageToast, JSONModel, Filter, FilterOperator, formatter, exportLibrary, Spreadsheet, NumberFormat) {
+    
+    function (BaseController, MessageToast, JSONModel, Filter, FilterOperator, formatter, exportLibrary, Spreadsheet, NumberFormat) {
         "use strict";
         var EdmType = exportLibrary.EdmType
 
-        return Controller.extend("legacy.controller.MainView", {
+        return BaseController.extend("legacy.controller.MainView", {
             onInit: function () {
                 this.getCounterError()
             },
@@ -74,7 +72,7 @@ sap.ui.define([
                             })
                         }).addStyleClass("goodTileBackground sapUiTinyMargin");
 
-                    case (Cantidad > 0 && Cantidad < 40):
+                    case (Cantidad > 0 && Cantidad < 20):
                         return new sap.m.GenericTile({
                             header: oContext.getProperty("title"),
                             subheader: oContext.getProperty("subtitle"),
