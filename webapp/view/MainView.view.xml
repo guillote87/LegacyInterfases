@@ -43,7 +43,7 @@
 					</fb:filterGroupItems>
 				</fb:FilterBar>
 
-				<Table  id="interfaseTable" items="{path:'FilteredErrors>/',
+				<Table  id="interfaseTable" sticky="ColumnHeaders" items="{path:'FilteredErrors>/',
 					           sorter: {path: 'Fecha',
 							   descending: true
 							   }}" growing="true" growingThreshold="30">
