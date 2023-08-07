@@ -115,12 +115,14 @@ sap.ui.define([
                 }
             },
             pressTile: function (event) {
-                var table = this.byId("tableVBox")
+                var VBox = this.byId("tableVBox")
+                var table = this.byId("interfaseTable")
+                table.setSticky([])
                 var tiles = this.byId("TileContainerExpanded")
            
                 this.getView().setModel(new JSONModel([]), "FilteredErrors")
 
-                table.setBusy(true)
+                VBox.setBusy(true)
                 tiles.setBusy(true)
                 var sPath = event.getSource().getBindingContext().sPath
                 var oModel = this.getView().getModel()
@@ -153,8 +155,9 @@ sap.ui.define([
                             MessageToast.show("No hay datos para mostrar")
                             this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
                         }
-                        table.setBusy(false)
+                        VBox.setBusy(false)
                         tiles.setBusy(false)
+                        table.setSticky(["ColumnHeaders"])
                     }.bind(this),
                     error: function (e) {
                         //
@@ -163,7 +166,7 @@ sap.ui.define([
 
                 // Cambiar a visible los elementos
                 this.getView().byId("table-title").setText("Interfase " + oContext.id)
-                table.setVisible(true)
+                VBox.setVisible(true)
                 this.onCleanFilters()
             },
             searchFilter: function () {
