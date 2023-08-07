@@ -64,9 +64,7 @@
 						<Column minScreenWidth="Small" demandPopin="true">
 							<Text text="Hora" />
 						</Column>
-						<Column minScreenWidth="Small" demandPopin="true">
-							<Text text="Mensaje"/>
-						</Column>
+					
 						<Column id="PedidoSap" >
 							<Text text="PedidoSAP" />
 						</Column>
@@ -81,6 +79,9 @@
 						</Column>
 						<Column >
 							<Text text="Oportunidad"/>
+						</Column>
+							<Column minScreenWidth="Small" demandPopin="true">
+							<Text text="Info Adicional"/>
 						</Column>
 					</columns>
 					<items>
@@ -100,12 +101,12 @@
 															source: {},
 														pattern: 'HH:mm:ss'
 														}}"/>
-								<Text text="{FilteredErrors>Mensaje}"/>
 								<Text text="{FilteredErrors>PedidoSAP}"/>
 								<Text text="{FilteredErrors>ClienteSAP}"/>
 								<Text text="{FilteredErrors>PedidoPortal}"/>
 								<Text text="{FilteredErrors>IdSite}"/>
 								<Text text="{FilteredErrors>Oportunidad}"/>
+								<Text text="{FilteredErrors>Mensaje}"/>
 							</cells>
 						</ColumnListItem>
 					</items>

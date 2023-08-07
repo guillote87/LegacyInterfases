@@ -20,7 +20,7 @@ sap.ui.define([
 			if (sPreviousHash !== undefined) {
 				window.history.go(-1);
 			} else {
-				this.getRouter().navTo("RouteView1", {}, true /*no history*/);
+				this.getRouter().navTo("RouteMainView", {}, true /*no history*/);
 			}
 		}
 

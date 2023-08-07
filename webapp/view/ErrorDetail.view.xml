@@ -29,6 +29,8 @@
 															source: {},
 														pattern: 'HH:mm:ss'
 														}}"/>
+														<Label text="Host" />
+					<Text text="{TempDataModel>/Host}"/>
 
 					
 					<core:Title text="Info Pedido" />
