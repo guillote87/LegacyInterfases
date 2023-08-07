@@ -18,7 +18,8 @@ sap.ui.define([
             var oArgs, oView;
             oArgs = oEvent.getParameter("arguments");
             oView = this.getView();
-
+            this.getView().setModel(new JSONModel([]), "LogError")
+            
             var log = this.getOwnerComponent().getModel('oDataInterfasesModel')
 
             log.setHeaders({

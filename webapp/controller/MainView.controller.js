@@ -17,6 +17,7 @@ sap.ui.define([
         return BaseController.extend("legacy.controller.MainView", {
             onInit: function () {
                 this.getCounterError()
+                var loading = false
             },
             getCounterError: function () {
                 var oModel = new JSONModel("../model/tileError.json");
@@ -62,14 +63,15 @@ sap.ui.define([
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
                             sizeBehavior: "Small",
-                            tileContent: new sap.m.TileContent({
-                                unit: oContext.getProperty("unit"),
-                                footer: oContext.getProperty("footer"),
-                                content: new sap.m.NumericContent({
-                                    value: oContext.getProperty("kpivalue"),
-                                    truncateValueTo: 8
+                            state : this.loading,
+                                tileContent: new sap.m.TileContent({
+                                    unit: oContext.getProperty("unit"),
+                                    footer: oContext.getProperty("footer"),
+                                    content: new sap.m.NumericContent({
+                                        value: oContext.getProperty("kpivalue"),
+                                        truncateValueTo: 8
+                                    })
                                 })
-                            })
                         }).addStyleClass("goodTileBackground sapUiTinyMargin");
 
                     case (Cantidad > 0 && Cantidad < 50):
@@ -79,6 +81,7 @@ sap.ui.define([
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
                             sizeBehavior: "Small",
+                            state : this.loading,
                             tileContent: new sap.m.TileContent({
                                 unit: oContext.getProperty("unit"),
                                 footer: oContext.getProperty("footer"),
@@ -96,6 +99,7 @@ sap.ui.define([
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
                             sizeBehavior: "Small",
+                            state : this.loading,
                             tileContent: new sap.m.TileContent({
                                 unit: oContext.getProperty("unit"),
                                 footer: oContext.getProperty("footer"),
@@ -112,10 +116,12 @@ sap.ui.define([
             },
             pressTile: function (event) {
                 var table = this.byId("tableVBox")
+                var tiles = this.byId("TileContainerExpanded")
+           
                 this.getView().setModel(new JSONModel([]), "FilteredErrors")
 
                 table.setBusy(true)
-
+                tiles.setBusy(true)
                 var sPath = event.getSource().getBindingContext().sPath
                 var oModel = this.getView().getModel()
                 var oContext = oModel.getProperty(sPath);
@@ -148,6 +154,7 @@ sap.ui.define([
                             this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
                         }
                         table.setBusy(false)
+                        tiles.setBusy(false)
                     }.bind(this),
                     error: function (e) {
                         //
