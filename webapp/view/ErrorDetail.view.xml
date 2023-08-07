@@ -32,12 +32,12 @@
 
 					
 					<core:Title text="Info Pedido" />
-					<Label text="Pedido SAP" />
-					<Text text="{TempDataModel>/PedidoSAP}"/>
+					<Label id="PedidoSap" text="Pedido SAP" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }"/>
+					<Text text="{TempDataModel>/PedidoSAP}" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }"/> 
 					<Label text="Cliente SAP" />
 					<Text text="{TempDataModel>/ClienteSAP}"/>
-					<Label text="Pedido Portal" />
-					<Text text="{TempDataModel>/PedidoPortal}"/>
+					<Label id= "PedidoPortal" text="Pedido Portal" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }" />
+					<Text text="{TempDataModel>/PedidoPortal}" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }"/>
 					<Label text="Id Site" />
 					<Text text="{TempDataModel>/IdSite}"/>
 

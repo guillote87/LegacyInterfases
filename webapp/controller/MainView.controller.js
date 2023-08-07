@@ -9,7 +9,7 @@ sap.ui.define([
     'sap/ui/export/Spreadsheet',
     "sap/ui/core/format/NumberFormat"
 ],
-    
+
     function (BaseController, MessageToast, JSONModel, Filter, FilterOperator, formatter, exportLibrary, Spreadsheet, NumberFormat) {
         "use strict";
         var EdmType = exportLibrary.EdmType
@@ -57,7 +57,7 @@ sap.ui.define([
                 switch (true) {
                     case (Cantidad == 0):
                         return new sap.m.GenericTile({
-                            header: oContext.getProperty("title"),
+                            header: oContext.getProperty("id") + " - " + oContext.getProperty("title"),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
@@ -72,9 +72,9 @@ sap.ui.define([
                             })
                         }).addStyleClass("goodTileBackground sapUiTinyMargin");
 
-                    case (Cantidad > 0 && Cantidad < 20):
+                    case (Cantidad > 0 && Cantidad < 50):
                         return new sap.m.GenericTile({
-                            header: oContext.getProperty("title"),
+                            header: oContext.getProperty("id") + " - " + oContext.getProperty("title"),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
@@ -89,9 +89,9 @@ sap.ui.define([
                             })
                         }).addStyleClass("criticalTileBackground sapUiTinyMargin");
 
-                    case (Cantidad > 20):
+                    case (Cantidad > 50):
                         return new sap.m.GenericTile({
-                            header: oContext.getProperty("title"),
+                            header: oContext.getProperty("id") + " - " + oContext.getProperty("title"),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
@@ -120,6 +120,14 @@ sap.ui.define([
                 var oModel = this.getView().getModel()
                 var oContext = oModel.getProperty(sPath);
 
+                if (oContext.id === '01' || oContext.id === '05') {
+                    this.byId("PedidoPortal").setVisible(false)
+                    this.byId("PedidoSap").setVisible(false)
+                } else {
+                    this.byId("PedidoPortal").setVisible(true)
+                    this.byId("PedidoSap").setVisible(true)
+                }
+
                 var filterInterface = this.getOwnerComponent().getModel('oDataInterfasesModel')
 
                 filterInterface.setHeaders({
@@ -133,6 +141,7 @@ sap.ui.define([
                     success: function (data) {
 
                         if (data.results.length) {
+                            console.log(data)
                             this.getView().setModel(new JSONModel(data.results), "FilteredErrors")
                         } else {
                             MessageToast.show("No hay datos para mostrar")
@@ -148,6 +157,7 @@ sap.ui.define([
                 // Cambiar a visible los elementos
                 this.getView().byId("table-title").setText("Interfase " + oContext.id)
                 table.setVisible(true)
+                this.onCleanFilters()
             },
             searchFilter: function () {
                 this.byId("interfaseTable").setBusy(true)
@@ -172,18 +182,15 @@ sap.ui.define([
 
             },
             onPress: function (oEvent) {
-
                 var itemPress = oEvent.getSource()
                 var oContext = itemPress.getBindingContext("FilteredErrors")
                 var oSelectedData = oContext.getObject()
 
-                // var oEventBus = sap.ui.getCore().getEventBus();
-                // oEventBus.publish("appChannel", "selectedDataEvent", oSelectedData);
 
                 this.getView().getModel("TempDataModel").setData(oSelectedData)
 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this)
-                oRouter.navTo("ErrorDetail", { IdLog: oSelectedData.IdLog })
+                oRouter.navTo("ErrorDetail", { IdLog: oSelectedData.IdLog || '00000' })
             },
             onCleanFilters: function () {
                 this.getView().byId("fecha").setValue(null);

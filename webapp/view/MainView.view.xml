@@ -64,20 +64,17 @@
 						<Column minScreenWidth="Small" demandPopin="true">
 							<Text text="Hora" />
 						</Column>
-						<Column minScreenWidth="Small" demandPopin="false">
-							<Text text="Operacion" />
-						</Column>
 						<Column minScreenWidth="Small" demandPopin="true">
 							<Text text="Mensaje"/>
 						</Column>
-						<Column >
-							<Text text="PedidoSAP"/>
+						<Column id="PedidoSap" >
+							<Text text="PedidoSAP" />
 						</Column>
 						<Column >
-							<Text text="ClienteSap"/>
+							<Text text="ClienteSap" />
 						</Column>
-						<Column minScreenWidth="Small" demandPopin="false">
-							<Text text="PedidoPortal"/>
+						<Column id="PedidoPortal" minScreenWidth="Small" demandPopin="false">
+							<Text text="PedidoPortal" />
 						</Column>
 						<Column minScreenWidth="Small" demandPopin="false">
 							<Text text="IdSite"/>
@@ -103,7 +100,6 @@
 															source: {},
 														pattern: 'HH:mm:ss'
 														}}"/>
-								<Text text="{FilteredErrors>Operacion}"/>
 								<Text text="{FilteredErrors>Mensaje}"/>
 								<Text text="{FilteredErrors>PedidoSAP}"/>
 								<Text text="{FilteredErrors>ClienteSAP}"/>

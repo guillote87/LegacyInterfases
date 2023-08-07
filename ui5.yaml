@@ -16,7 +16,6 @@ server:
         backend:
           - path: /sap
             url: https://soades.sap.navent.com:44301
-            destination: navent
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
