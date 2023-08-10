@@ -73,7 +73,7 @@
 						<Column minScreenWidth="Small" demandPopin="false">
 							<Text text="IdSite"/>
 						</Column>
-						<Column >
+						<Column id="Oportunidad">
 							<Text text="Oportunidad"/>
 						</Column>
 							<Column minScreenWidth="Small" demandPopin="true">
