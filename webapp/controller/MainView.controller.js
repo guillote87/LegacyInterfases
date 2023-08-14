@@ -55,10 +55,11 @@ sap.ui.define([
             },
             createTiles: function (sId, oContext) {
                 var Cantidad = oContext.getProperty("kpivalue");
+                var i18bundle = this.getView().getModel("i18n").getResourceBundle();
                 switch (true) {
                     case (Cantidad == 0):
                         return new sap.m.GenericTile({
-                            header: oContext.getProperty("id") + " - " + oContext.getProperty("title"),
+                            header: i18bundle.getText("interfase"+[oContext.getProperty("id")]),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
@@ -76,7 +77,7 @@ sap.ui.define([
 
                     case (Cantidad > 0 && Cantidad < 50):
                         return new sap.m.GenericTile({
-                            header: oContext.getProperty("id") + " - " + oContext.getProperty("title"),
+                            header: i18bundle.getText("interfase"+ [oContext.getProperty("id")]),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
@@ -94,7 +95,7 @@ sap.ui.define([
 
                     case (Cantidad > 50):
                         return new sap.m.GenericTile({
-                            header: oContext.getProperty("id") + " - " + oContext.getProperty("title"),
+                            header: i18bundle.getText("interfase"+[oContext.getProperty("id")]),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),

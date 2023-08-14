@@ -8,12 +8,12 @@
 		<VBox class="sapUiSmallMargin">
 			<f:SimpleForm id="info" editable="false" layout="ResponsiveGridLayout" title="LOG {TempDataModel>/IdLog}"  columnsM="2" columnsL="2" columnsXL="2" 	singleContainerFullSize="false">
 				<f:content>
-					<core:Title text="Info" />
-					<Label text="Interface" />
+					<core:Title text="{i18n>Info}" />
+					<Label text="{i18n>Interface}" />
 					<Text text="{TempDataModel>/Interface}"/>
-					<Label text="Org. Ventas" />
+					<Label text="{i18n>SalesOrg}" />
 					<Text text="{TempDataModel>/OrgVentas}"/>
-					<Label text="Fecha" />
+					<Label text="{i18n>Date}" />
 					<Text text="{path: 'TempDataModel>/Fecha',
 											 type:'sap.ui.model.type.Date',
 											formatOptions: {
@@ -22,29 +22,29 @@
 														}
 														}"/>
 											
-					<Label text="Hora" />
+					<Label text="{i18n>Time}" />
 					<Text  text="{path:'TempDataModel>/Hora',
 											 type:'sap.ui.model.type.Time',
 											 formatOptions: {
 															source: {},
 														pattern: 'HH:mm:ss'
 														}}"/>
-														<Label text="Host" />
+					<Label text="{i18n>Host}" />
 					<Text text="{TempDataModel>/Host}"/>
 
 					
-					<core:Title text="Info Pedido" />
-					<Label id="PedidoSap" text="Pedido SAP" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }"/>
+					<core:Title text="{i18n>OrderInfo}" />
+					<Label id="PedidoSap" text="{i18n>OrderSAP}" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }"/>
 					<Text text="{TempDataModel>/PedidoSAP}" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }"/> 
-					<Label text="Cliente SAP" />
+					<Label text="{i18n>ClientSAP}" />
 					<Text text="{TempDataModel>/ClienteSAP}"/>
-					<Label id= "PedidoPortal" text="Pedido Portal" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }" />
+					<Label id= "PedidoPortal" text="{i18n>OrderPortal}" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }" />
 					<Text text="{TempDataModel>/PedidoPortal}" visible="{= !(${TempDataModel>/Interface} === '01' || ${TempDataModel>/Interface} === '05') }"/>
-					<Label text="Id Site" />
+					<Label text="{i18n>IdSite}" />
 					<Text text="{TempDataModel>/IdSite}"/>
 
 						
-					<core:Title text="Error" />
+					<core:Title text="{i18>Error}" />
 					<Label text="Log" />
 					<TextArea value="{LogError>/0/Mensaje}" rows="8" editable="false" />
 				</f:content>

@@ -14,7 +14,7 @@
 			<VBox id="tableVBox" class="sapUiResponsiveMargin" alignContent="Center" visible="false">
 				<fb:FilterBar id="filterBar" useToolbar="false" reset="onReset" search="searchFilter" clear="onClear" cancel="onCancel">
 					<fb:filterGroupItems>
-						<fb:FilterGroupItem groupName="G1" visibleInFilterBar="true" name="orgvta" label="Org Venta">
+						<fb:FilterGroupItem groupName="G1" visibleInFilterBar="true" name="orgvta" label="{i18n>SalesOrg}">
 							<fb:control  >
 								<!-- <Input id="orgVta" width="50%"></Input> -->
 								<ComboBox id="orgVta" showSecondaryValues="true" items="{
@@ -31,7 +31,7 @@
 								<DateRangeSelection id="fecha" valueFormat="dd.MM.yyyy" displayFormat='dd/MM/yyyy' change="onDateChange" />
 							</fb:control>
 						</fb:FilterGroupItem>
-						<fb:FilterGroupItem groupName="G3" name=" " visibleInFilterBar="true" label="Limpiar Filtros">
+						<fb:FilterGroupItem groupName="G3" name=" " visibleInFilterBar="true" label="{i18n>cleanFilters}">
 							<fb:control >
 								<Button class="stretch" icon="sap-icon://clear-filter" press="onCleanFilters" />
 							</fb:control>
@@ -52,32 +52,32 @@
 			</headerToolbar>
 					<columns>
 						<Column >
-							<Text text="Org. Ventas"/>
+							<Text text="{i18n>SalesOrg}"/>
 						</Column>
 						<Column minScreenWidth="Small" width="auto" demandPopin="true">
-							<Text text="Fecha" />
+							<Text text="{i18n>Date}" />
 						</Column>
 						<Column minScreenWidth="Small" demandPopin="true">
-							<Text text="Hora" />
+							<Text text="{i18n>Time}" />
 						</Column>
 					
 						<Column id="PedidoSap" >
-							<Text text="PedidoSAP" />
+							<Text text="{i18n>OrderSAP}" />
 						</Column>
 						<Column >
-							<Text text="ClienteSap" />
+							<Text text="{i18n>ClientSAP}" />
 						</Column>
 						<Column id="PedidoPortal" minScreenWidth="Small" demandPopin="false">
-							<Text text="PedidoPortal" />
+							<Text text="{i18n>OrderPortal}" />
 						</Column>
 						<Column minScreenWidth="Small" demandPopin="false">
-							<Text text="IdSite"/>
+							<Text text="{i18n>IdSite}"/>
 						</Column>
-						<Column id="Oportunidad">
-							<Text text="Oportunidad"/>
+						<Column id="Oportunidad" >
+							<Text text="{i18n>Oportunity}"/>
 						</Column>
 							<Column minScreenWidth="Small" demandPopin="true">
-							<Text text="Info Adicional"/>
+							<Text text="{i18n>AdditionalInfo}"/>
 						</Column>
 					</columns>
 					<items>
