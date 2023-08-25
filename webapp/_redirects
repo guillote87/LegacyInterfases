@@ -1,2 +1,3 @@
-/sap/opu/odata/sap/ZGW_MONITOR_INTERFASES_SRV/* https://soaqa.sap.navent.com:1443/sap/opu/odata/sap/ZGW_MONITOR_INTERFASES_SRV/:splat 200
-/sap/opu/odata/sap/ZGW_REST_SERVICES/* https://soaqa.sap.navent.com:1443/sap/opu/odata/sap/ZGW_REST_SERVICES/:splat 200
+/sap/opu/odata/sap/ZGW_MONITOR_INTERFASES_SRV/* https://soaprd.sap.navent.com:8000/sap/opu/odata/sap/ZGW_MONITOR_INTERFASES_SRV/:splat 200
+/sap/opu/odata/sap/ZGW_REST_SERVICES/* https://soaprd.sap.navent.com:8000/sap/opu/odata/sap/ZGW_REST_SERVICES/:splat 200
+
