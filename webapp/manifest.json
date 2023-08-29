@@ -81,12 +81,16 @@
       "oDataInterfasesModel": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {}
+        "settings": {
+          "useBatch": false
+        }
       },
       "org": {
         "dataSource": "orgSales",
         "preload": true,
-        "settings": {}
+        "settings": {
+          "useBatch": false
+        }
       }
     },
     "resources": {
