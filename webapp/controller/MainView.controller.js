@@ -59,30 +59,30 @@ sap.ui.define([
                 switch (true) {
                     case (Cantidad == 0):
                         return new sap.m.GenericTile({
-                            header: i18bundle.getText("interfase"+[oContext.getProperty("id")]),
+                            header: i18bundle.getText("interfase" + [oContext.getProperty("id")]),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
                             sizeBehavior: "Small",
-                            state : this.loading,
-                                tileContent: new sap.m.TileContent({
-                                    unit: oContext.getProperty("unit"),
-                                    footer: oContext.getProperty("footer"),
-                                    content: new sap.m.NumericContent({
-                                        value: oContext.getProperty("kpivalue"),
-                                        truncateValueTo: 8
-                                    })
+                            state: this.loading,
+                            tileContent: new sap.m.TileContent({
+                                unit: oContext.getProperty("unit"),
+                                footer: oContext.getProperty("footer"),
+                                content: new sap.m.NumericContent({
+                                    value: oContext.getProperty("kpivalue"),
+                                    truncateValueTo: 8
                                 })
+                            })
                         }).addStyleClass("goodTileBackground sapUiTinyMargin");
 
                     case (Cantidad > 0 && Cantidad < 50):
                         return new sap.m.GenericTile({
-                            header: i18bundle.getText("interfase"+ [oContext.getProperty("id")]),
+                            header: i18bundle.getText("interfase" + [oContext.getProperty("id")]),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
                             sizeBehavior: "Small",
-                            state : this.loading,
+                            state: this.loading,
                             tileContent: new sap.m.TileContent({
                                 unit: oContext.getProperty("unit"),
                                 footer: oContext.getProperty("footer"),
@@ -95,12 +95,12 @@ sap.ui.define([
 
                     case (Cantidad > 50):
                         return new sap.m.GenericTile({
-                            header: i18bundle.getText("interfase"+[oContext.getProperty("id")]),
+                            header: i18bundle.getText("interfase" + [oContext.getProperty("id")]),
                             subheader: oContext.getProperty("subtitle"),
                             frameType: "OneByHalf",
                             press: this.pressTile.bind(this),
                             sizeBehavior: "Small",
-                            state : this.loading,
+                            state: this.loading,
                             tileContent: new sap.m.TileContent({
                                 unit: oContext.getProperty("unit"),
                                 footer: oContext.getProperty("footer"),
@@ -120,7 +120,7 @@ sap.ui.define([
                 var table = this.byId("interfaseTable")
                 table.setSticky([])
                 var tiles = this.byId("TileContainerExpanded")
-           
+
                 this.getView().setModel(new JSONModel([]), "FilteredErrors")
 
                 VBox.setBusy(true)
@@ -163,7 +163,7 @@ sap.ui.define([
                         table.setSticky(["ColumnHeaders"])
                     }.bind(this),
                     error: function (e) {
-                        //
+                        MessageToast.show(e)
                     }
                 })
 
