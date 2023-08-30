@@ -164,7 +164,11 @@ sap.ui.define([
                         table.setSticky(["ColumnHeaders"])
                     }.bind(this),
                     error: function (e) {
-                        console.log(e)
+                        if (e.statusCode = 500) {
+                            MessageToast.show("Error")
+                            VBox.setBusy(false)
+                            tiles.setBusy(false)
+                        }
                     }
                 })
 
