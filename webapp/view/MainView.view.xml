@@ -51,7 +51,7 @@
 				</OverflowToolbar>
 			</headerToolbar>
 					<columns>
-						<Column >
+						<Column  width="auto">
 							<Text text="{i18n>SalesOrg}"/>
 						</Column>
 						<Column minScreenWidth="Small" width="auto" demandPopin="true">
@@ -61,22 +61,22 @@
 							<Text text="{i18n>Time}" />
 						</Column>
 					
-						<Column id="PedidoSap" >
+						<Column width="auto" id="PedidoSap" >
 							<Text text="{i18n>OrderSAP}" />
 						</Column>
-						<Column >
+						<Column width="auto">
 							<Text text="{i18n>ClientSAP}" />
 						</Column>
-						<Column id="PedidoPortal" minScreenWidth="Small" demandPopin="false">
+						<Column id="PedidoPortal"  width="auto" minScreenWidth="Small" demandPopin="false">
 							<Text text="{i18n>OrderPortal}" />
 						</Column>
-						<Column minScreenWidth="Small" demandPopin="false">
+						<Column width="auto" minScreenWidth="Small" demandPopin="false">
 							<Text text="{i18n>IdSite}"/>
 						</Column>
-						<Column id="Oportunidad" >
+						<Column width="auto" id="Oportunidad" >
 							<Text text="{i18n>Oportunity}"/>
 						</Column>
-							<Column minScreenWidth="Small" demandPopin="true">
+							<Column  width="auto" minScreenWidth="Small" demandPopin="true">
 							<Text text="{i18n>AdditionalInfo}"/>
 						</Column>
 					</columns>
