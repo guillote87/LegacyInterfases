@@ -8,7 +8,7 @@
 	<Shell >
 		<Page id="page" title="{i18n>title}" showNavButton="false" navButtonPress="onNavBack">
 			<VBox class="sapUiResponsiveMargin">
-				<l:HorizontalLayout busy="false" id="TileContainerExpanded" allowWrapping="true" content="{path :'/tiles' ,factory :'.createTiles'}" class="sapUiSmallMargin">
+				<l:HorizontalLayout busy="false"  id="TileContainer" allowWrapping="true" content="{path :'/tiles' ,factory :'.createTiles'}" class="sapUiSmallMargin">
 				</l:HorizontalLayout>
 			</VBox>
 			<VBox id="tableVBox" class="sapUiResponsiveMargin" alignContent="Center" visible="false">

@@ -9,6 +9,9 @@
     width: 10%;
 }
 
+.sapMListTblCell{
+    padding: 0;
+}
 
 /* OPCION1 */
 /* html.sap-desktop .sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage) {
