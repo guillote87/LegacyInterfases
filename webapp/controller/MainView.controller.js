@@ -146,7 +146,7 @@ sap.ui.define([
                 })
 
                 filterInterface.read("/LogsSet", {
-                    
+
                     filters: [
                         new sap.ui.model.Filter("Interface", FilterOperator.EQ, oContext.id),
                     ],
@@ -164,7 +164,7 @@ sap.ui.define([
                         table.setSticky(["ColumnHeaders"])
                     }.bind(this),
                     error: function (e) {
-                        MessageToast.show(e.error)
+                        console.log(e)
                     }
                 })
 
